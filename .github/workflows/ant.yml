@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - master
+      - $default-branch
       - $protected-branches
   pull_request:
     branches:
       - master
+      - $default-branch
   schedule:
   - cron: "23 21 * * 2"
   workflow_dispatch:
@@ -21,3 +23,4 @@ jobs:
     with:
       josm-revision: ${{ matrix.josm-revision }}
       perform-revision-tagging: ${{ github.repository == 'tsmock/CADTools' && github.ref_type == 'branch' && github.ref_name == 'master' && github.event_name != 'schedule' && github.event_name != 'pull_request' && matrix.josm-revision == 'r17896' }}
+    secrets: inherit
