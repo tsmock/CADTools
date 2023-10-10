@@ -19,6 +19,6 @@ jobs:
     strategy:
       matrix:
         josm-revision: ["", "r18723"]
-    uses: JOSM/JOSMPluginAction/.github/workflows/ant.yml@v1
+    uses: JOSM/JOSMPluginAction/.github/workflows/ant.yml@v2
     with:
       josm-revision: ${{ matrix.josm-revision }}
